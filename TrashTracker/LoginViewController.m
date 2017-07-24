@@ -7,9 +7,11 @@
 //
 
 #import "LoginViewController.h"
+#import "AppDelegate.h"
 
-@interface LoginViewController ()
-
+@interface LoginViewController (){
+    User* user;
+}
 @end
 
 @implementation LoginViewController
@@ -17,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    user = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).user;
+    self.labelLoginError.hidden = YES;
 }
 
 
@@ -26,4 +30,15 @@
 }
 
 
+- (IBAction)login:(id)sender {
+    user.username = self.inputUsername.text;
+    user.password = self.inputPassword.text;
+    NSString* userID = [user signup];
+    if (userID == nil) {
+        self.labelLoginError.hidden = NO;
+        return;
+    }else{
+        [self performSegueWithIdentifier:@"loggedInSegue" sender:self];
+    }
+}
 @end

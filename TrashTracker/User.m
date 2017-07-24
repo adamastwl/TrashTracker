@@ -11,15 +11,23 @@
 
 @implementation User
 
+-(NSString*)signup{
+    NSString* url = @"signup with _username and _password, response user_id, if exist, response error without user_id";
+    NSDictionary* response = [RestClient getWithURL:url];
+    return [response objectForKey:@"user_id"];
+}
 
--(NSString*)loginWithUsername:(NSString *)usr andPassword:(NSString *)pwd{
-    NSString* result = nil;
+
+-(NSString*)login{
     NSString* url = @"";
-    NSString* response = [RestClient getWithURL:url];
-    if (![response isEqualToString:@"Failed"]) {
-        result = response;
-    }
-    return result;
+    NSDictionary* response = [RestClient getWithURL:url];
+    return [response objectForKey:@"user_id"];
+}
+
+-(NSArray*)allTrashBins{
+    NSString* url = @"";
+    NSDictionary* response = [RestClient getWithURL:url];
+    return [response objectForKey:@"user_id"];
 }
 
 

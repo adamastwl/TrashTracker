@@ -10,6 +10,10 @@
 
 @interface User : NSObject
 
--(NSString*)loginWithUsername:(NSString*) usr andPassword:(NSString*) pwd;
+@property (strong, nonatomic) NSString* username;
+@property (strong, nonatomic) NSString* password;
+
+-(NSString*)signup;
+-(NSString*)login;
 -(NSArray*)allTrashBins;
 @end

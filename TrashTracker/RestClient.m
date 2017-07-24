@@ -9,17 +9,17 @@
 #import "RestClient.h"
 
 @implementation RestClient
-+(NSString*)getWithURL:(NSString *)url{
-    NSString* result = @"";
++(NSDictionary*)getWithURL:(NSString *)url{
+    NSDictionary* result = [NSDictionary dictionaryWithObjectsAndKeys:@"value", @"key", nil];
     return result;
 }
-+(NSString*)postWithURL:(NSString *)url andPayload:(NSDictionary *)payload{
-    NSString* result = @"";
++(NSDictionary*)postWithURL:(NSString *)url andPayload:(NSDictionary *)payload{
+    NSDictionary* result = [NSDictionary dictionaryWithObjectsAndKeys:@"value", @"key", nil];
     return result;
 }
 
-+(NSString*)putWithURL:(NSString *)url andPayload:(NSDictionary *)payload{
-    NSString* result = @"";
++(NSDictionary*)putWithURL:(NSString *)url andPayload:(NSDictionary *)payload{
+    NSDictionary* result = [NSDictionary dictionaryWithObjectsAndKeys:@"value", @"key", nil];
     return result;
 }
 

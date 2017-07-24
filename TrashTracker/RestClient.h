@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface RestClient : NSObject
-+(NSString*)getWithURL:(NSString*)url;
-+(NSString*)postWithURL:(NSString*)url andPayload:(NSDictionary*)payload;
-+(NSString*)putWithURL:(NSString*)url andPayload:(NSDictionary*)payload;
++(NSDictionary*)getWithURL:(NSString*)url;
++(NSDictionary*)postWithURL:(NSString*)url andPayload:(NSDictionary*)payload;
++(NSDictionary*)putWithURL:(NSString*)url andPayload:(NSDictionary*)payload;
 @end

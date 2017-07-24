@@ -9,6 +9,4 @@
 #import <Foundation/Foundation.h>
 
 @interface SystemHelper : NSObject
--(BOOL)hasUser:(NSString*) username;
--(BOOL)signUpUser:(NSString*) usr withPassword:(NSString*) pwd;
 @end
