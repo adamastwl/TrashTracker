@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Constants.h"
 
 @interface SignupViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *inputUsr;

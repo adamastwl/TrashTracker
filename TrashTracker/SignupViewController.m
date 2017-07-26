@@ -8,10 +8,12 @@
 
 #import "SignupViewController.h"
 #import "AppDelegate.h"
+#import "UIUtility.h"
 
 
 @interface SignupViewController (){
     User* user;
+    NSUserDefaults *userDefault;
 }
 
 @end
@@ -22,6 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     user = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).user;
+    userDefault = [NSUserDefaults standardUserDefaults];
     self.labelError.text = @"";
 }
 
@@ -61,14 +64,19 @@
         self.labelError.text = @"用户名不能含有空格";
         return;
     }
+    UIView* blocker = [UIUtility addBlockerToView:self.view];
     user.username = [parts objectAtIndex:0];
     user.password = pwd;
-    NSString* userID = [user signup];
-    if (userID == nil) {
-        self.labelError.text = @"用户名已存在";
-        return;
-    }else{
-        [self performSegueWithIdentifier:@"signedUpSegue" sender:self];
-    }
+    [user signupThen:^(NSDictionary *response) {
+        [self.view willRemoveSubview:blocker];
+        NSString* userID = [response objectForKey:@"user_id"];
+        if (userID == nil) {
+            self.labelError.text = @"用户名已存在";
+            return;
+        }else{
+            [userDefault setObject:userID forKey:kSettingUserIDKey];
+            [self performSegueWithIdentifier:@"signedUpSegue" sender:self];
+        }
+    }];
 }
 @end

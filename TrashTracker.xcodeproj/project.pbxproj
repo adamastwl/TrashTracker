@@ -11,6 +11,9 @@
 		8E092CE91F21BBB000FC19F9 /* RestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E092CE81F21BBB000FC19F9 /* RestClient.m */; };
 		8E092CEC1F21BBF100FC19F9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E092CEB1F21BBF100FC19F9 /* User.m */; };
 		8E092CEF1F21BFD500FC19F9 /* SystemHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E092CEE1F21BFD500FC19F9 /* SystemHelper.m */; };
+		8EC1355C1F26EA1E007C8822 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC1355B1F26EA1E007C8822 /* Constants.m */; };
+		8EC1355F1F26F18C007C8822 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC1355E1F26F18C007C8822 /* MainViewController.m */; };
+		8ECEA4E91F284D1600FFBEF7 /* UIUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECEA4E81F284D1600FFBEF7 /* UIUtility.m */; };
 		8ED44B181F1F11C800A1530D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED44B171F1F11C800A1530D /* main.m */; };
 		8ED44B1B1F1F11C800A1530D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED44B1A1F1F11C800A1530D /* AppDelegate.m */; };
 		8ED44B1E1F1F11C800A1530D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED44B1D1F1F11C800A1530D /* LoginViewController.m */; };
@@ -29,6 +32,12 @@
 		8E092CEB1F21BBF100FC19F9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		8E092CED1F21BFD500FC19F9 /* SystemHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemHelper.h; sourceTree = "<group>"; };
 		8E092CEE1F21BFD500FC19F9 /* SystemHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemHelper.m; sourceTree = "<group>"; };
+		8EC1355A1F26EA1E007C8822 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		8EC1355B1F26EA1E007C8822 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		8EC1355D1F26F18C007C8822 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		8EC1355E1F26F18C007C8822 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		8ECEA4E71F284D1600FFBEF7 /* UIUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUtility.h; sourceTree = "<group>"; };
+		8ECEA4E81F284D1600FFBEF7 /* UIUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUtility.m; sourceTree = "<group>"; };
 		8ED44B131F1F11C800A1530D /* TrashTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrashTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ED44B171F1F11C800A1530D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8ED44B191F1F11C800A1530D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -53,7 +62,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8E092CE61F21BB7900FC19F9 /* New Group */ = {
+		8E092CE61F21BB7900FC19F9 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				8E092CE71F21BBB000FC19F9 /* RestClient.h */,
@@ -62,8 +71,12 @@
 				8E092CEB1F21BBF100FC19F9 /* User.m */,
 				8E092CED1F21BFD500FC19F9 /* SystemHelper.h */,
 				8E092CEE1F21BFD500FC19F9 /* SystemHelper.m */,
+				8EC1355A1F26EA1E007C8822 /* Constants.h */,
+				8EC1355B1F26EA1E007C8822 /* Constants.m */,
+				8ECEA4E71F284D1600FFBEF7 /* UIUtility.h */,
+				8ECEA4E81F284D1600FFBEF7 /* UIUtility.m */,
 			);
-			name = "New Group";
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		8ED44B0A1F1F11C800A1530D = {
@@ -85,13 +98,15 @@
 		8ED44B151F1F11C800A1530D /* TrashTracker */ = {
 			isa = PBXGroup;
 			children = (
-				8E092CE61F21BB7900FC19F9 /* New Group */,
+				8E092CE61F21BB7900FC19F9 /* Utilities */,
 				8ED44B191F1F11C800A1530D /* AppDelegate.h */,
 				8ED44B1A1F1F11C800A1530D /* AppDelegate.m */,
 				8ED44B1C1F1F11C800A1530D /* LoginViewController.h */,
 				8ED44B1D1F1F11C800A1530D /* LoginViewController.m */,
 				8E092CE31F21AB6400FC19F9 /* SignupViewController.h */,
 				8E092CE41F21AB6400FC19F9 /* SignupViewController.m */,
+				8EC1355D1F26F18C007C8822 /* MainViewController.h */,
+				8EC1355E1F26F18C007C8822 /* MainViewController.m */,
 				8ED44B1F1F1F11C800A1530D /* Main.storyboard */,
 				8ED44B251F1F11C800A1530D /* Assets.xcassets */,
 				8ED44B271F1F11C800A1530D /* LaunchScreen.storyboard */,
@@ -184,11 +199,14 @@
 				8ED44B1E1F1F11C800A1530D /* LoginViewController.m in Sources */,
 				8E092CEC1F21BBF100FC19F9 /* User.m in Sources */,
 				8ED44B1B1F1F11C800A1530D /* AppDelegate.m in Sources */,
+				8EC1355F1F26F18C007C8822 /* MainViewController.m in Sources */,
 				8E092CE91F21BBB000FC19F9 /* RestClient.m in Sources */,
 				8ED44B181F1F11C800A1530D /* main.m in Sources */,
 				8E092CE51F21AB6400FC19F9 /* SignupViewController.m in Sources */,
 				8E092CEF1F21BFD500FC19F9 /* SystemHelper.m in Sources */,
 				8ED44B241F1F11C800A1530D /* TrashTracker.xcdatamodeld in Sources */,
+				8EC1355C1F26EA1E007C8822 /* Constants.m in Sources */,
+				8ECEA4E91F284D1600FFBEF7 /* UIUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

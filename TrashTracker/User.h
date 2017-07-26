@@ -12,8 +12,9 @@
 
 @property (strong, nonatomic) NSString* username;
 @property (strong, nonatomic) NSString* password;
+@property (strong, nonatomic) NSString* userID;
 
--(NSString*)signup;
--(NSString*)login;
--(NSArray*)allTrashBins;
+-(void)signupThen:(void (^)(NSDictionary *))handler;
+-(void)loginThen:(void (^)(NSDictionary *))handler;
+-(void)getAllTrashBinsThen:(void (^)(NSDictionary *))handler;
 @end

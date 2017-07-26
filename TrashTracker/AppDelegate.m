@@ -8,7 +8,9 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+@interface AppDelegate (){
+    NSUserDefaults *userDefault;
+}
 
 @end
 
@@ -18,6 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     _user = [[User alloc] init];
+    [self createUserPreference];
     return YES;
 }
 
@@ -48,6 +51,15 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+-(void)createUserPreference{
+    userDefault = [NSUserDefaults standardUserDefaults];
+    NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 kNoUser,kSettingUserIDKey,
+                                 nil];
+    [userDefault registerDefaults:appDefaults];
+    [userDefault synchronize];
 }
 
 

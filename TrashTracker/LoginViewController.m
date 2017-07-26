@@ -8,9 +8,11 @@
 
 #import "LoginViewController.h"
 #import "AppDelegate.h"
+#import "UIUtility.h"
 
 @interface LoginViewController (){
     User* user;
+    NSUserDefaults *userDefault;
 }
 @end
 
@@ -19,8 +21,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    user = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).user;
     self.labelLoginError.hidden = YES;
+    user = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).user;
+    userDefault = [NSUserDefaults standardUserDefaults];
+    NSString* uid = [userDefault stringForKey:kSettingUserIDKey];
+    if (![uid isEqualToString:kNoUser]) {
+        [user setUserID:uid];
+        [self performSegueWithIdentifier:@"loggedInSegue" sender:self];
+    }
+    
 }
 
 
@@ -31,14 +40,19 @@
 
 
 - (IBAction)login:(id)sender {
+    UIView* blocker = [UIUtility addBlockerToView:self.view];
     user.username = self.inputUsername.text;
     user.password = self.inputPassword.text;
-    NSString* userID = [user signup];
-    if (userID == nil) {
-        self.labelLoginError.hidden = NO;
-        return;
-    }else{
-        [self performSegueWithIdentifier:@"loggedInSegue" sender:self];
-    }
+    [user loginThen:^(NSDictionary *response) {
+        [self.view willRemoveSubview:blocker];
+        NSString* userID = [response objectForKey:@"user_id"];
+        if (userID == nil) {
+            self.labelLoginError.hidden = NO;
+        }else{
+            [userDefault setObject:userID forKey:kSettingUserIDKey];
+            [self performSegueWithIdentifier:@"loggedInSegue" sender:self];
+        }
+
+    }];
 }
 @end
